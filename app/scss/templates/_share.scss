@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.clr::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.f-left {
+  float: left;
+}
+
+.f-right {
+  float: right;
+}
+
+.inner {
+  width: 960px;
+  margin: 0 auto;
+}
+
+.d-desktop {
+  display: block;
+}
+
+.d-table {
+  display: none;
+}
+
+@media only screen and (max-width: $desktop) {
+  .inner {
+    width: auto;
+    padding: 0 10px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: $table) {
+  .f-left,
+  .f-right {
+    float: none;
+  }
+  .d-desktop {
+    display: none;
+  }
+  .d-table {
+    display: block;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: $mobile) {
+}

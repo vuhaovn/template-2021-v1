@@ -12,7 +12,7 @@ function sassTask() {
     autoprefixer(),
     cssnano()
   ]
-  return src('./app/scss/**/*.scss', {sourcemaps: true})
+  return src('app/scss/style.scss', {sourcemaps: true})
     .pipe(sass())
     .pipe(postcss(plugins))
     .pipe(dest('dist/css', {sourcemaps: '.'}));
@@ -20,7 +20,7 @@ function sassTask() {
 
 // Javascript Task
 function jsTask() {
-  return src('./app/js/**/*.js', {sourcemaps: true})
+  return src(['app/js/**/*.js', '!app/js/**/*.min.js'], {sourcemaps: true})
     .pipe(terser())
     .pipe(dest('dist/js', {sourcemaps: '.'}));
 }
@@ -44,7 +44,7 @@ function browsersyncReload(cb) {
 // Watch Task
 function watchTask() {
   watch('*.html', browsersyncReload);
-  watch(['./app/scss/**/*.scss', './app/js/**/*.js'], series(sassTask, jsTask, browsersyncReload));
+  watch(['app/scss/**/*.scss', 'app/js/**/*.js'], series(sassTask, jsTask, browsersyncReload));
 }
 
 // Default Gulp Task

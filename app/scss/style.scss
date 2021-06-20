@@ -1,5 +1,4 @@
-$title: blue;
-
-h1 {
-  color: $title;
-}
+// Template
+@import 'templates/var', 'templates/share', 'templates/header', 'templates/footer', 'templates/main';
+//Pages
+@import 'pages/index';
